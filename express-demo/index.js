@@ -6,6 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(logger);
 
+
 const courses = [
   { id: 1, name: 'Nodejs' },
   { id: 2, name: 'PHP' },
