@@ -1,0 +1,19 @@
+{
+  "name": "code-with-mosh_node_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.6.0",
+    "nodemon": "^2.0.19",
+    "underscore": "^1.13.4"
+  },
+  "devDependencies": {
+    "jshint": "^2.13.5"
+  }
+}
