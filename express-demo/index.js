@@ -1,3 +1,4 @@
+const morgan = require('morgan');
 const logger = require('./logger')
 const Joi = require('joi');
 const express = require('express');
@@ -5,14 +6,13 @@ const app = express();
 
 app.use(express.json());
 app.use(logger);
-
+app.use(morgan('tiny'));
 
 const courses = [
   { id: 1, name: 'Nodejs' },
   { id: 2, name: 'PHP' },
   { id: 3, name: 'Ruby' },
 ];
-
 
 
 // HTTP GET Request
