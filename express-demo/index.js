@@ -6,7 +6,14 @@ const app = express();
 
 app.use(express.json());
 app.use(logger);
-app.use(morgan('tiny'));
+
+// Environment Variables
+console.log(process.env.NODE_ENV);
+
+if (app.get('env') === 'development') {
+  app.use(morgan('tiny'));
+  console.log('Morgan Enabled....')
+}
 
 const courses = [
   { id: 1, name: 'Nodejs' },
