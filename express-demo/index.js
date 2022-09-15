@@ -1,3 +1,4 @@
+const config = require('config');
 const morgan = require('morgan');
 const logger = require('./logger')
 const Joi = require('joi');
@@ -9,6 +10,11 @@ app.use(logger);
 
 // Environment Variables
 console.log(process.env.NODE_ENV);
+
+// Configurations
+console.log('Application name : ', config.get('name'));
+console.log('Mail Server : ', config.get('mail.host'));
+console.log('Mail password : ', config.get('mail.password'));
 
 if (app.get('env') === 'development') {
   app.use(morgan('tiny'));
