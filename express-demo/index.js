@@ -5,6 +5,10 @@ const Joi = require('joi');
 const express = require('express');
 const app = express();
 
+// Templating Engine
+app.set('view engine', 'pug');
+app.set('views', './views') // default
+
 app.use(express.json());
 app.use(logger);
 
@@ -30,7 +34,7 @@ const courses = [
 
 // HTTP GET Request
 app.get('/', (req, res) => {
-  res.send('Welcome to my website');
+  res.render('index', { title: 'My Express App', message:'Hello, Welcome to my website'});
 });
 
 app.get('/api/courses', (req, res) => {
