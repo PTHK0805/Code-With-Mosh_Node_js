@@ -1,16 +1,12 @@
 const p = new Promise((resolve, reject) => {
-  // Kick off some Async work
+  // Kick off some async work
   // ...
-
   setTimeout(() => {
-    // To return Result
-    resolve(1);
-
-    // To return Error
-    reject(new Error('message'))
-  }, 2000)
-})
+    resolve(1); // pending => resolved, fulfilled 
+    reject(new Error('message')); // pending => rejected
+  }, 2000);
+});
 
 p
-  .then(result => console.log('Result : ', result))
-  .catch(err => console.log('Error : ', err));
+  .then(result => console.log('Result', result))
+  .catch(err => console.log('Error', err.message));
