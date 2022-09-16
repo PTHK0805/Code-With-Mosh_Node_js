@@ -1,0 +1,6 @@
+{
+  "name" : "Mongodb",
+  "database" : {
+    "host" : "mongodb://localhost/playground"
+  }
+}
