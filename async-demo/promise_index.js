@@ -1,4 +1,5 @@
 console.log('Before');
+// Callback Hell
 getUser(1, (user) => {
   getRepositories(user.gitHubUsername, (repos) => {
     getCommits(repos[0], (commits) => {
@@ -6,6 +7,13 @@ getUser(1, (user) => {
     })
   })
 });
+
+// Solve Callback Hell with Promise
+getUser(1)
+  .then(user => getRepositories(user))
+  .then(repos => getCommits(repos))
+  .then(commit => console.log('Commits: ', commit))
+  .catch(err => console.log('Error: ', err));
 
 console.log('After');
 
@@ -35,7 +43,7 @@ function getRepositories(username) {
 
 function getCommits(repo, callback) {
   return new Promise((resolve, reject) => {
-    
+
     setTimeout(() => {
       console.log('Calling GitHub API...');
 
