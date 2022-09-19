@@ -56,7 +56,17 @@ async function getCourse() {
     .find()
     .or({ author: 'Mosh' }, { isPublished: true })
     .and([])
+
+    // Regular Expression
+    // Starts with Mosh
+    .find({ author: /^Mosh/ })
     
+    // Ends With Hamedani
+    .find({ author: /Hamedani$/ })
+    
+    // Contains the word Mosh
+    .find({ author: /.*Mosh.*/i })
+  
     .limit(10)
     .sort({ name: 1 })
     .select({ name: 1, tags: 1 });
